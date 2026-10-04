@@ -1,5 +1,11 @@
 # Hotel No Show Prediction
 
+An end-to-end, production-oriented machine-learning pipeline that estimates the probability of a hotel booking becoming a no-show. The workflow is built with Kedro and combines data validation, feature engineering, model comparison, probability calibration, experiment tracking, and holdout evaluation.
+
+**Headline result:** the calibrated final pipeline achieves an **AUROC of 0.81** on the holdout test set, supporting operational decisions such as targeted reminders, staffing, inventory planning, deposit policies, and overbooking limits.
+
+**Explore the projects:** [AI-Enabled Task Chatbot](https://github.com/weifengsiew/ai-enabled-task-chatbot) · [Kedro pipeline visualisation](https://weifengsiew.github.io/machine-learning-pipeline-hotel/?types=nodes&expandAllPipelines=false&pid=__default__)
+
 <p align="center">
   <img src="notebooks/images/final_results_header.png" alt="Hotel no-show prediction report visual" width="900"/>
 </p>
