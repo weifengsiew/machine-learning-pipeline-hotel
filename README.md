@@ -106,7 +106,7 @@ Lastly, we plot the calibration curve to assess whether the predicted no-show pr
 
 See [`notebooks/final_results.ipynb`](notebooks/final_results.ipynb) for the full results.
 
-## 5. To Reproduce
+## 5. Run the Full Workflow
 
 ### Clone Repository
 
@@ -133,15 +133,22 @@ On macOS, install the OpenMP runtime required by LightGBM:
 brew install libomp
 ```
 
-### Run Workflow
+### Run the Workflow
 
-Run the full workflow:
+Run the complete workflow:
 
 ```bash
 ./run.sh
 ```
 
-Open [`notebooks/final_results.ipynb`](notebooks/final_results.ipynb) for the final report.
+The workflow downloads `noshow.db`, then runs data ingestion, cleaning and validation, feature engineering, model training and selection, probability calibration, and holdout evaluation.
+
+After it finishes:
+
+- Open [`notebooks/final_results.ipynb`](notebooks/final_results.ipynb) for the evaluation report.
+- Find the selected model, test metrics, and pipeline summary in `results/ml_experiments/`.
+- Find experiment parameters, metrics, and artifacts in `results/mlruns/`.
+- Find data validation results in `results/validation/`.
 
 Run stages individually:
 
@@ -160,7 +167,17 @@ Run stages individually:
 | `scripts/stage4.sh` | `train/test split -> ML experiment -> pipeline selection and calibration -> holdout evaluation and results` |
 | `scripts/all_stages.sh` | Runs stages 1-4 |
 
-## 6. To Configure a New ML Experiment
+## 6. Implications for Hotel Operations
+
+The model assigns each booking a probability of becoming a no-show. A hotel can choose a classification threshold to decide which bookings to prioritize for interventions such as reminders. The right threshold depends on how many bookings the team can act on and the relative costs of missed no-shows and unnecessary interventions.
+
+Use the precision-recall and ROC curves to compare possible operating points. For example, at 60% recall, the evaluation reports about 71% precision and a 15% false positive rate. At that operating point, the model identifies 60% of actual no-shows; among bookings flagged as likely no-shows, about 71% are actual no-shows; and about 15% of guests who would have shown up are flagged unnecessarily.
+
+If intervention capacity is limited, choose a threshold that keeps the number of flagged bookings manageable while maintaining useful precision. If missing a likely no-show is more costly, choose a threshold that increases recall, while accounting for the additional false positives and interventions this may create. The reported curves help compare these tradeoffs; the final threshold should be selected using the hotel's actual capacity, intervention costs, and business priorities.
+
+The calibration curve can help assess whether predicted probabilities align with observed no-show rates. This matters when estimating expected no-shows or comparing the potential value of different interventions.
+
+## 7. To Configure a New ML Experiment
 
 To add a new candidate pipeline:
 
@@ -169,7 +186,7 @@ To add a new candidate pipeline:
 3. Add model hyperparameter search grids in [`conf/base/parameters/model_hyperparams/`](conf/base/parameters/model_hyperparams/).
 4. Add the candidate name, preprocessor type, and model key in [`ml_experiment.yml`](conf/base/parameters/ml_experiment.yml).
 
-## 7. Repository Structure
+## 8. Repository Structure
 
 ```text
 .
