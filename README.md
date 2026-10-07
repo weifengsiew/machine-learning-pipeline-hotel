@@ -1,6 +1,6 @@
 # Hotel No Show Prediction
 
-**Explore the projects:** [AI-Enabled Task Chatbot](https://github.com/weifengsiew/ai-enabled-task-chatbot) · [Kedro pipeline visualisation](https://weifengsiew.github.io/machine-learning-pipeline-hotel/?types=nodes&expandAllPipelines=false&pid=__default__)
+**Explore the projects:** [AI-Enabled Task Chatbot](https://github.com/weifengsiew/ai-enabled-task-chatbot) · [Kedro pipeline visualisation](https://weifengsiew.github.io/machine-learning-pipeline-hotel-no-shows/?types=nodes&expandAllPipelines=false&pid=__default__)
 
 <p align="center">
   <img src="notebooks/images/final_results_header.png" alt="Hotel no-show prediction report visual" width="900"/>
@@ -27,7 +27,7 @@ To achieve the project objective, a machine learning workflow consisting of the 
 </p>
 
 <p align="center">
-  <a href="https://weifengsiew.github.io/machine-learning-pipeline-hotel/?types=nodes&expandAllPipelines=false&pid=__default__">
+  <a href="https://weifengsiew.github.io/machine-learning-pipeline-hotel-no-shows/?types=nodes&expandAllPipelines=false&pid=__default__">
     <strong>Visualise the workflow stages in detail</strong>
   </a>
 </p>
