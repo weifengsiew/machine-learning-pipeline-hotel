@@ -20,15 +20,19 @@ To achieve the project objective, a machine learning workflow consisting of the 
 
 `noshow.db -> data ingestion -> data cleaning and validation -> feature engineering -> train/test split -> ML experiment -> pipeline selection and calibration -> holdout evaluation and results`
 
+The workflow is also published as an interactive Kedro-Viz site on GitHub Pages: [open the live pipeline visualisation](https://weifengsiew.github.io/machine-learning-pipeline-hotel-no-shows/?types=nodes&expandAllPipelines=false&pid=__default__).
+
 <p align="center">
   <img src="notebooks/images/kedro%20pipeline.png" alt="Kedro pipeline workflow" width="700"/>
 </p>
 
 <p align="center">
-  <a href="https://weifengsiew.github.io/Machine-Learning-Pipeline-Hotel-No-Shows/?types=nodes&expandAllPipelines=false&pid=__default__">
+  <a href="https://weifengsiew.github.io/machine-learning-pipeline-hotel-no-shows/?types=nodes&expandAllPipelines=false&pid=__default__">
     <strong>Visualise the workflow stages in detail</strong>
   </a>
 </p>
+
+The site is rebuilt by [`.github/workflows/github-actions.yml`](.github/workflows/github-actions.yml) when the Kedro project changes. GitHub Pages must use **GitHub Actions** as its publishing source.
 
 ## 3. Python Frameworks
 
