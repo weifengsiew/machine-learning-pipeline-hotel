@@ -55,3 +55,7 @@ results/validation/*
 !results/validation/.gitkeep
 results/ml_experiments/*
 !results/ml_experiments/.gitkeep
+
+# Local documentation and agent instructions
+docs/
+agents.md
